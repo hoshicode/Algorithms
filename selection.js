@@ -1,3 +1,5 @@
+
+
 var arr = [];
 
 function sendNumber(){
@@ -6,6 +8,8 @@ function sendNumber(){
     arr = textbox.split(',').map(Number);
     console.log(arr);
     sort()
+    //var testArray = arr.slice(1,arr.length);
+    //console.log(testArray);
 }
 
 function sort(){
@@ -13,21 +17,22 @@ function sort(){
     console.log(arr);
     for(var i = 0; i <arr.length;i++){
 
+    var testArray = arr.slice(i,arr.length);
 
-    var min = Math.min(...arr.slice(i,arr.length+1));
-    var minIndex = arr.indexOf(Math.min(...arr.slice(i,arr.length+1)));
+    var min = Math.min(...testArray);
+    var minIndex = testArray.indexOf(Math.min(...testArray));
 
     console.log(min);
     console.log(minIndex);
 
-        function swapArray(left,min){
+        function swapArray(left,minIndex){
           var s_left = arr[left];
-          var s_min = arr[min];
+          var s_min = arr[minIndex];
           arr[left] = s_min;
-          arr[min] = s_left;
+          arr[minIndex] = s_left;
         }
 
-    swapArray(i,minIndex);
+    swapArray(i,minIndex+i);
 
 
     console.log(arr);
