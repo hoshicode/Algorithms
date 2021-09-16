@@ -24,6 +24,10 @@ function createNumber(){
   random_arr = [];
   random_arr_forSort = [];
   css_index =[];
+  if(document.querySelector('style') != null){
+    const element = document.querySelector('style');
+    element.remove();
+  }
 
   const how_many = document.getElementById("how_many").value;
   const max = document.getElementById("max").value;
@@ -104,15 +108,17 @@ function searchAll(arr,s_index){
   }
   var j_ = 1;
   console.log("s_index:"+ s_index);
-  console.log(arr[s_index - j_][0]);
-  console.log(arr[s_index][0]);
-  while(arr[s_index - j_][0] == arr[s_index][0]){
-    css_index.push(s_index - j_);
-    j_++;
-    if(s_index - j_ < 0){
-      break;
-    }
 
+  if(s_index == 0){}
+  else{
+    while(arr[s_index - j_][0] == arr[s_index][0]){
+      css_index.push(s_index - j_);
+      j_++;
+      if(s_index - j_ < 0){
+        break;
+      }
+
+    }
   }
   console.log(css_index);
 }
